@@ -1,0 +1,206 @@
+Criador Por : WT Mods
+Number Zap : +55 34 993140747
+
+STRUTURA DE PATCHER
+
+    MemoryPatch ReloadTime;
+    MemoryPatch Damage;
+    MemoryPatch WeaponZoom;
+    MemoryPatch Stability;
+
+bool feature1 = false, feature2 = false, featureHookToggle = false;
+int sliderValue = 1;
+void *instanceBtn;
+
+bool hack1 = false, hack2 = false, hack3 = true, hack4 = false, hack5 = false, hack6 = false, hack7 = false, hack8 = false, hack9 = false, hack10 = false, hack11 = false;
+
+// HOOKING NO SITE LGLTEAM ENSINAR COMO USALO CORRETAMENTE
+float (*orig_get_ReloadTime)(void *instance);
+float get_ReloadTime(void *instance)
+{
+    if(instance != NULL && hack1)  Check if instance isn't NULL to prevent crashes
+    {
+        return 0.001f; public float get_ReloadTime()
+
+    }
+    orig_get_ReloadTime(instance); If they aren't enemies then return original value
+}+
+
+float (*orig_get_Stability) (void* instance);
+float get_Stability(void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack2)
+    {
+        return 1000.0f;  public float get_Stability()
+    }
+    return orig_get_Stability(instance);
+}
+
+float (*orig_get_Spread) (void* instance);
+float  get_Spread (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack3)
+    {
+        return 0.0f;  public float get_Spread()
+    }
+    return orig_get_Spread(instance);
+}
+
+float (*orig_get_MaxZoom) (void* instance);
+float get_MaxZoom (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack4)
+    {
+        return 50.0f;  public float get_Spread()
+    }
+    return orig_get_MaxZoom(instance);
+}
+
+float (*orig_get_Damage) (void* instance);
+float  get_Damage (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack5)
+    {
+        return 1000.0f;  public float get_Spread()
+    }
+    return orig_get_Damage(instance);
+}
+
+float (*orig_get_Range) (void* instance);
+float  get_Range (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack6)
+    {
+        return 1000.0f;  public float get_Spread()
+    }
+    return orig_get_Range(instance);
+}
+
+
+
+int (*orig_get_Energy) (void* instance);
+int get_Energy (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack7)
+    {
+       return 99;  public float get_Spread()
+    }
+    return orig_get_Energy(instance);
+}
+
+int (*orig_get_Quantity) (void* instance);
+int get_Quantity (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack8)
+    {
+        return -1;
+    }
+    return orig_get_Quantity(instance);
+}
+
+int (*orig_get_SoftCurrency) (void* instance);
+int get_SoftCurrency (void* instance) {
+
+    LOGI(("FinishFishing status: %d"), status);
+    if (instance != NULL && hack8)
+    {
+        return 10000;
+    }
+    return orig_get_SoftCurrency(instance);
+}
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x156198C", '?'))), (void *)  get_ReloadTime, (void **) &orig_get_ReloadTime);
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x15618C0", '?'))), (void *)  get_Stability, (void **) &orig_get_Stability);
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x1561664", '?'))), (void *)  get_Spread, (void **) &orig_get_Spread);
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x15619B4", '?'))), (void *)  get_MaxZoom, (void **) &orig_get_MaxZoom);
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x1561684", '?'))), (void *)  get_Damage, (void **) &orig_get_Damage);
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x1561634", '?'))), (void *)  get_Range, (void **) &orig_get_Range);
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x12A0308", '?'))), (void *)  get_Energy, (void **) &orig_get_Energy);
+
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x15D12A0", '?'))), (void *)  get_Quantity, (void **) &orig_get_Quantity);
+
+
+    MSHookFunction((void *) getAbsoluteAddress(targetLibName, string2Offset(_KEY("0x12A0194", '?'))), (void *)  get_SoftCurrency, (void **) &orig_get_SoftCurrency);
+
+        ("Category_The Category"), Not counted
+        ("Toggle_Weapon Instant Reaload"),
+        ("Toggle_Max Stability"),
+        ("Toggle_No Spread"),
+        ("Toggle_Weapon Zoom 20x "),
+        ("Toggle_Damage - 1 Hit"),
+        ("Toggle_Weapon Range 1000x"),
+        ("Toggle_Energy"),
+        ("Toggle_Diamond / Gold "),
+
+        ("Toggle_No Recoil"),
+        ("Toggle_Walk Speed 2x"),
+
+        ("Toggle_Weapon Stability"),
+        ("Toggle_Weapon No Spread"),
+        ("Toggle_Weapon FireRate"),
+        ("Toggle_Unlimited Ammo"),
+        ("Toggle_Gems & Gold"),
+        ("Toggle_Unlimited Energy"),
+        ("Toggle_Weapon Zoom 20x"),
+        ("Toggle_Weapon Range 1000x"),
+
+
+/*CASE BASGA SABER ENCAXAR EM CASA LCOAL DE CLASSIFICAÇÃO*/
+
+case 0:
+hack1 = boolean;
+break;
+
+case 1:
+hack2 = boolean;
+break;
+
+case 2:
+hack3 = boolean;
+break;
+
+case 3:
+hack4 = boolean;
+break;
+
+case 4:
+hack5 = boolean;
+break;
+
+case 5:
+hack6 = boolean;
+break;
+
+case 6:
+hack7 = boolean;
+break;
+
+case 7:
+hack8 = boolean;
+break;
+
+case 8:
+hack9 = boolean;
+break;
+
+case 9:
+hack10 = boolean;
+break;
+
+case 10:
+hack11 = boolean;
+break;
